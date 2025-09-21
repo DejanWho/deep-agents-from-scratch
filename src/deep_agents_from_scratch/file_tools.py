@@ -11,12 +11,12 @@ from langchain_core.tools import InjectedToolCallId, tool
 from langgraph.prebuilt import InjectedState
 from langgraph.types import Command
 
-from deep_agents_from_scratch.prompts import (
+from src.deep_agents_from_scratch.prompts import (
     LS_DESCRIPTION,
     READ_FILE_DESCRIPTION,
     WRITE_FILE_DESCRIPTION,
 )
-from deep_agents_from_scratch.state import DeepAgentState
+from src.deep_agents_from_scratch.state import DeepAgentState
 
 
 @tool(description=LS_DESCRIPTION)
@@ -79,7 +79,7 @@ def write_file(
         file_path: Path where the file should be created/updated
         content: Content to write to the file
         state: Agent state containing virtual filesystem (injected in tool node)
-        tool_call_id: Tool call identifier for message response
+        tool_call_id: Tool call identifier for message response (injected in tool node)
 
     Returns:
         Command to update agent state with new file content
